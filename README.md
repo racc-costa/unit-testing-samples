@@ -9,3 +9,5 @@ Java unit testing samples with Mocks.
 ###### Mock static method
 ###### Verify behavior
 ###### Partial mock
+###### Mock constructor
+
