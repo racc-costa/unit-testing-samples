@@ -84,8 +84,8 @@ public class ClientServiceTest {
 	}
 	
 	// Partial mock
-	// Este exemplo mostra como fazer mock de um método privado da classe sendo testada.
-	// This example shows how partially mock a tested class.
+	// This example shows how partially mock a tested class.  Need @RunWith(PowerMockRunner.class) and @PrepareForTest(ClientService.class).
+	// Este exemplo mostra como fazer mock de um método privado da classe sendo testada. Precisa de @RunWith(PowerMockRunner.class) e @PrepareForTest(ClientService.class).
 	@Test
 	public void testDelete() throws Exception {
 		ClientService serviceSpy = PowerMockito.spy(new ClientService());
