@@ -6,6 +6,7 @@ import java.net.SocketException;
 public class ClientService {
 	private ClientDAO dao;
 	private Socket socket = new Socket();
+	@SuppressWarnings("unused")
 	private double serial = Math.random();
 
 	public boolean isServiceOnline() throws SocketException {
@@ -13,6 +14,7 @@ public class ClientService {
 	}
 
 	public void insert(Client client) {
+		client.getName();
 		dao.insert(client);
 		dao.insert(client);
 	}

@@ -3,15 +3,8 @@ package br.com.racc.client;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.powermock.api.mockito.PowerMockito;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
 
-import br.com.racc.client.Client;
-
-@RunWith(PowerMockRunner.class)
-@PrepareForTest(Client.class)
 public class ClientTest {
 
 	// Mock constructor

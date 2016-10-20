@@ -9,15 +9,12 @@ import java.net.SocketException;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InOrder;
 import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.powermock.reflect.Whitebox;
-
-import br.com.racc.client.Client;
-import br.com.racc.client.ClientDAO;
-import br.com.racc.client.ClientService;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(ClientService.class)
@@ -79,12 +76,14 @@ public class ClientServiceTest {
 	@Test
 	public void testInsert() {
 		ClientService service = new ClientService();
-		Client client = new Client("John");
+		Client clientMock = Mockito.mock(Client.class);
 		ClientDAO clientDAOMock = PowerMockito.mock(ClientDAO.class);
 		Whitebox.setInternalState(service, ClientDAO.class, clientDAOMock);
 
-		service.insert(client);
-		Mockito.verify(clientDAOMock, Mockito.times(2)).insert(client);
+		service.insert(clientMock);
+		InOrder emOrdem = Mockito.inOrder(clientMock, clientDAOMock);
+		emOrdem.verify(clientMock, Mockito.times(1)).getName();
+		emOrdem.verify(clientDAOMock, Mockito.times(2)).insert(clientMock);
 	}
 	
 	// Partial mock
