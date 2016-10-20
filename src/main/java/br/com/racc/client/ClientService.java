@@ -1,4 +1,4 @@
-package br.com.racc.testing.pojo;
+package br.com.racc.client;
 
 import java.net.Socket;
 import java.net.SocketException;

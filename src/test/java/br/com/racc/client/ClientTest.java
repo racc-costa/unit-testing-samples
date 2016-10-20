@@ -8,7 +8,7 @@ import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
-import br.com.racc.testing.pojo.Client;
+import br.com.racc.client.Client;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(Client.class)

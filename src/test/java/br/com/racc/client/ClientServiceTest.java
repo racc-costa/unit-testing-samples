@@ -15,9 +15,9 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.powermock.reflect.Whitebox;
 
-import br.com.racc.testing.pojo.Client;
-import br.com.racc.testing.pojo.ClientDAO;
-import br.com.racc.testing.pojo.ClientService;
+import br.com.racc.client.Client;
+import br.com.racc.client.ClientDAO;
+import br.com.racc.client.ClientService;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(ClientService.class)
