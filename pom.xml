@@ -15,6 +15,20 @@
 		<powermock.versao>1.6.5</powermock.versao>
 	</properties>
 
+	<developers>
+		<developer>
+			<id>racc-costa</id>
+			<name>Ricardo Costa</name>
+			<email>racc.costa@gmail.com</email>
+			<url>https://github.com/racc-costa</url>
+			<roles>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+			<timezone>America/Sao_Paulo</timezone>
+		</developer>
+	</developers>
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>

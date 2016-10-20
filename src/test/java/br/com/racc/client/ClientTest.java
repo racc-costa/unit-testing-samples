@@ -1,4 +1,4 @@
-package br.com.racc.testing.pojo;
+package br.com.racc.client;
 
 import static org.junit.Assert.assertEquals;
 
@@ -7,6 +7,8 @@ import org.junit.runner.RunWith;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
+
+import br.com.racc.testing.pojo.Client;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(Client.class)

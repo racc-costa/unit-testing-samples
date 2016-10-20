@@ -1,4 +1,4 @@
-package br.com.racc.testing.pojo;
+package br.com.racc.client;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -14,6 +14,10 @@ import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.powermock.reflect.Whitebox;
+
+import br.com.racc.testing.pojo.Client;
+import br.com.racc.testing.pojo.ClientDAO;
+import br.com.racc.testing.pojo.ClientService;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(ClientService.class)
@@ -76,11 +80,11 @@ public class ClientServiceTest {
 	public void testInsert() {
 		ClientService service = new ClientService();
 		Client client = new Client("John");
-		ClientDAO dao = PowerMockito.mock(ClientDAO.class);
-		Whitebox.setInternalState(service, ClientDAO.class, dao);
+		ClientDAO clientDAOMock = PowerMockito.mock(ClientDAO.class);
+		Whitebox.setInternalState(service, ClientDAO.class, clientDAOMock);
 
 		service.insert(client);
-		Mockito.verify(dao, Mockito.times(2)).insert(client);
+		Mockito.verify(clientDAOMock, Mockito.times(2)).insert(client);
 	}
 	
 	// Partial mock
@@ -88,14 +92,14 @@ public class ClientServiceTest {
 	// Este exemplo mostra como fazer mock de um método privado da classe sendo testada. Precisa de @RunWith(PowerMockRunner.class) e @PrepareForTest(ClientService.class).
 	@Test
 	public void testDelete() throws Exception {
-		ClientService serviceSpy = PowerMockito.spy(new ClientService());
+		ClientService clientServiceSpy = PowerMockito.spy(new ClientService());
 		Client client = new Client("John");
-		PowerMockito.doReturn(true).when(serviceSpy, "validadeClientName", client.getName());
+		PowerMockito.doReturn(true).when(clientServiceSpy, "validadeClientName", client.getName());
 		
-		ClientDAO dao = PowerMockito.mock(ClientDAO.class);
-		Whitebox.setInternalState(serviceSpy, ClientDAO.class, dao);
+		ClientDAO clientDAOMock = PowerMockito.mock(ClientDAO.class);
+		Whitebox.setInternalState(clientServiceSpy, ClientDAO.class, clientDAOMock);
 
-		serviceSpy.delete(client);
-		Mockito.verify(dao, Mockito.times(1)).delete(client);
+		clientServiceSpy.delete(client);
+		Mockito.verify(clientDAOMock, Mockito.times(1)).delete(client);
 	}
 }
