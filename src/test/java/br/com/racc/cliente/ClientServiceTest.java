@@ -7,7 +7,9 @@ import static org.junit.Assert.assertTrue;
 import java.net.Socket;
 import java.net.SocketException;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.InOrder;
 import org.mockito.Mockito;
@@ -16,13 +18,12 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.powermock.reflect.Whitebox;
 
-import br.com.racc.cliente.ClienteDAO;
-import br.com.racc.cliente.ClienteService;
-import br.com.racc.cliente.Cliente;
-
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(ClienteService.class)
 public class ClientServiceTest {
+
+	@Rule
+	public ExpectedException exceptionEsperada = ExpectedException.none();
 
 	// Get em membro privado
 	@Test
@@ -55,6 +56,16 @@ public class ClientServiceTest {
 		service.isServicoOnline();
 	}
 
+	// Verifica mensagem da Exception
+	@Test
+	public void testIsServicoOnlineMensagemException() throws Exception {
+		exceptionEsperada.expect(Exception.class);
+		exceptionEsperada.expectMessage("Nada.");
+		ClienteService service = new ClienteService();
+		Cliente cliente = new Cliente("");
+		service.remove(cliente);
+	}
+
 	// Mock de um método static
 	public void testSerial() throws SocketException {
 		PowerMockito.mockStatic(Math.class);
@@ -78,14 +89,14 @@ public class ClientServiceTest {
 		emOrdem.verify(clienteMock, Mockito.times(1)).getNome();
 		emOrdem.verify(clienteDAOMock, Mockito.times(2)).persiste(clienteMock);
 	}
-	
+
 	// Mock parcial
 	@Test
 	public void testRemove() throws Exception {
 		ClienteService clienteServiceSpy = PowerMockito.spy(new ClienteService());
 		Cliente cliente = new Cliente("John");
 		PowerMockito.doReturn(true).when(clienteServiceSpy, "validaNomeCliente", cliente.getNome());
-		
+
 		ClienteDAO clienteDAOMock = PowerMockito.mock(ClienteDAO.class);
 		Whitebox.setInternalState(clienteServiceSpy, ClienteDAO.class, clienteDAOMock);
 

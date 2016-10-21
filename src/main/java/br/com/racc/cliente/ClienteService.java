@@ -19,15 +19,15 @@ public class ClienteService {
 		clienteDAO.persiste(cliente);
 	}
 
-	public void remove(Cliente cliente) {
+	public void remove(Cliente cliente) throws Exception {
 		if (!validaNomeCliente(cliente.getNome())) {
-			throw new RuntimeException("Nada.");
+			throw new Exception("Nada.");
 		}
 		
 		clienteDAO.remove(cliente);
 	}
 
 	private boolean validaNomeCliente(String nome) {
-		return nome.isEmpty();
+		return !nome.isEmpty();
 	}
 }
