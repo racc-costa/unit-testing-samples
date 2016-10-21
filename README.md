@@ -1,12 +1,13 @@
 # unit-testing-samples
-Java unit testing samples with Mocks.
+Exemplos de teste de unide em Java com Mocks.
 
 
-##Samples
-###### Get private member - br.com.racc.client.ClientServiceTest
-###### Set private member - br.com.racc.client.ClientServiceTest
-###### Force Exception - br.com.racc.client.ClientServiceTest
-###### Mock static method - br.com.racc.client.ClientServiceTest
-###### Verify behavior - br.com.racc.client.ClientServiceTest
-###### Partial mock - br.com.racc.client.ClientServiceTest
-###### Mock constructor - br.com.racc.client.Client
+##Exemplos
+###### Get em membro privado - br.com.racc.cliente.ClienteServiceTest.testSerialNaoNulo()
+###### Set em membro privado - br.com.racc.cliente.ClienteServiceTest.testIsServicoOnline()
+###### Invoke a private method - br.com.racc.cliente.ClienteTest.testIsNameEmpty()
+###### Simula Exception - br.com.racc.cliente.ClienteServiceTest.testIsServicoOnlineException()
+###### Mock de um método static - br.com.racc.cliente.ClienteServiceTest.testSerial()
+###### Verifica comportamento - br.com.racc.cliente.ClienteServiceTest.testCadastra()
+###### Mock parcial - br.com.racc.cliente.ClienteServiceTest.testRemove()
+###### Mock constructor - br.com.racc.cliente.ClienteTest.testClient()
