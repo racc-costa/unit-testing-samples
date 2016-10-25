@@ -13,7 +13,7 @@ public class ClienteTest {
 
 	// Fazer mock de um constructor.
 	@Test
-	public void testcliente() throws Exception {
+	public void testCliente() throws Exception {
 		Cliente clienteMock = PowerMockito.mock(Cliente.class);
 		PowerMockito.whenNew(Cliente.class).withNoArguments().thenReturn(clienteMock);
 		PowerMockito.when(clienteMock.getNome()).thenCallRealMethod();
@@ -23,10 +23,8 @@ public class ClienteTest {
 
 	// Invocar método privado
 	@Test
-	public void testIsNameEmpty() throws Exception {
+	public void testIsNomeVazio() throws Exception {
 		Cliente cliente = new Cliente(null);
-
-		boolean isNameNull = Whitebox.invokeMethod(cliente, "isNomeVazio");
-		assertTrue(isNameNull);
+		assertTrue((Boolean) Whitebox.invokeMethod(cliente, "isNomeVazio"));
 	}
 }
