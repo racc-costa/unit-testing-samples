@@ -25,7 +25,7 @@ public class ClientServiceTest {
 	@Rule
 	public ExpectedException exceptionEsperada = ExpectedException.none();
 
-	// Get em membro privado
+	// Get de membro privado
 	@Test
 	public void testSerialNaoNulo() throws SocketException {
 		ClienteService service = new ClienteService();
@@ -34,7 +34,7 @@ public class ClientServiceTest {
 		assertNotNull(serial);
 	}
 
-	// Set em membro privado
+	// Set de membro privado
 	@Test
 	public void testIsServicoOnline() throws SocketException {
 		ClienteService service = new ClienteService();

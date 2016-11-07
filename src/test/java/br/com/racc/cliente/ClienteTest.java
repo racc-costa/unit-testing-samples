@@ -11,7 +11,7 @@ import br.com.racc.cliente.Cliente;
 
 public class ClienteTest {
 
-	// Fazer mock de um constructor.
+	// Mock do constructor
 	@Test
 	public void testCliente() throws Exception {
 		Cliente clienteMock = PowerMockito.mock(Cliente.class);
