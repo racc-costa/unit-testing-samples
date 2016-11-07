@@ -13,6 +13,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<powermock.versao>1.6.5</powermock.versao>
+		<junit.versao>4.12</junit.versao>
 	</properties>
 
 	<developers>
@@ -33,7 +34,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version>
+			<version>${junit.versao}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
