@@ -7,15 +7,15 @@ import java.util.List;
 public class ClienteDAO {
 	List<Cliente> clientes = new ArrayList<Cliente>();
 
-	public void persiste(Cliente client) {
-		clientes.add(client);
+	public void persiste(Cliente cliente) {
+		clientes.add(cliente);
 	}
-	
+
 	public List<Cliente> getClientes() {
 		return Collections.unmodifiableList(clientes);
 	}
 
-	public void remove(Cliente client) {
-		// Não faz nada
+	public void remove(Cliente cliente) {
+		clientes.remove(cliente);
 	}
 }

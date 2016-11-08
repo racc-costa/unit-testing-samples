@@ -14,12 +14,10 @@ import org.junit.runner.RunWith;
 import org.mockito.InOrder;
 import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
-import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.powermock.reflect.Whitebox;
 
 @RunWith(PowerMockRunner.class)
-@PrepareForTest(ClienteService.class)
 public class ClientServiceTest {
 
 	@Rule
@@ -93,14 +91,13 @@ public class ClientServiceTest {
 	// Mock parcial
 	@Test
 	public void testRemove() throws Exception {
-		ClienteService clienteServiceSpy = PowerMockito.spy(new ClienteService());
+		ClienteService clienteService = new ClienteService();
 		Cliente cliente = new Cliente("John");
-		PowerMockito.doReturn(true).when(clienteServiceSpy, "validaNomeCliente", cliente.getNome());
 
 		ClienteDAO clienteDAOMock = PowerMockito.mock(ClienteDAO.class);
-		Whitebox.setInternalState(clienteServiceSpy, ClienteDAO.class, clienteDAOMock);
+		Whitebox.setInternalState(clienteService, ClienteDAO.class, clienteDAOMock);
 
-		clienteServiceSpy.remove(cliente);
+		clienteService.remove(cliente);
 		Mockito.verify(clienteDAOMock, Mockito.times(1)).remove(cliente);
 	}
 }
