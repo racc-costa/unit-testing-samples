@@ -15,6 +15,7 @@ public class ClienteDAOTest {
 	public void testPersiste() {
 		ClienteDAO clienteDAO = new ClienteDAO();
 		Cliente cliente = new Cliente("John");
+		@SuppressWarnings("unchecked")
 		List<Cliente> clientes = PowerMockito.mock(new ArrayList<Cliente>().getClass());
 		Whitebox.setInternalState(clienteDAO, "clientes", clientes);
 

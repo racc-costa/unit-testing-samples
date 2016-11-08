@@ -1,13 +1,10 @@
 package br.com.racc.cliente;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.reflect.Whitebox;
-
-import br.com.racc.cliente.Cliente;
 
 public class ClienteTest {
 
@@ -26,5 +23,11 @@ public class ClienteTest {
 	public void testIsNomeVazio() throws Exception {
 		Cliente cliente = new Cliente(null);
 		assertTrue((Boolean) Whitebox.invokeMethod(cliente, "isNomeVazio"));
+	}
+	
+	@Test
+	public void testIsNomeVazioFalse() throws Exception {
+		Cliente cliente = new Cliente("Teste");
+		assertFalse((Boolean) Whitebox.invokeMethod(cliente, "isNomeVazio"));
 	}
 }
